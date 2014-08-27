@@ -9,7 +9,7 @@
   <modules>
     <module>modules-platform</module>
     <module>modules-member</module>
-    <module>commons</module>
-    <module>ivey-web0base</module>
+    <module>ivey-commons</module>
+    <module>ivey-web-base</module>
   </modules>
 </project>

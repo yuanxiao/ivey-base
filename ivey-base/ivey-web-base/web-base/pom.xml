@@ -54,9 +54,10 @@
 			<artifactId>modules-member</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
 			<groupId>ivey-base</groupId>
-			<artifactId>commons</artifactId>
+			<artifactId>ivey-commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

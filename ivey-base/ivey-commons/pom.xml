@@ -8,9 +8,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>ivey-base</groupId>
-  <artifactId>commons</artifactId>
+  <artifactId>ivey-commons</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>commons</name>
+  <name>ivey-commons</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
