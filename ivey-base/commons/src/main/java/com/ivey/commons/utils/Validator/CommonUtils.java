@@ -1,0 +1,8 @@
+package com.ivey.commons.utils.Validator;
+
+public class CommonUtils {
+
+	public static String getUserDirectory() {
+		return System.getProperty("user.dir");
+	}
+}

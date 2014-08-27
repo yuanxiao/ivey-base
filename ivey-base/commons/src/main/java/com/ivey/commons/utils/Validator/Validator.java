@@ -1,4 +1,4 @@
-package com.ivey.commons.utils;
+package com.ivey.commons.utils.Validator;
 
 import java.util.Collection;
 import java.util.Map;
