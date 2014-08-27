@@ -15,11 +15,14 @@ import com.ivey.web.controller.BaseController;
 @RequestMapping(value="/member")
 public class MemberController extends BaseController {
 
-	@RequestMapping(value="/login",method = RequestMethod.POST)
+	@RequestMapping(value="/login",method = RequestMethod.GET)
 	public String login(Model model,MemberDto member){
+		
+		
+		System.err.println(member);
 		if (Validator.isNullOrEmpty(member)){
-			return "/views/index";
+			return "index";
 		}
-		return "";
+		return "index";
 	}
 }

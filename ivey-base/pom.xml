@@ -21,7 +21,7 @@
                 <version>2.1</version>
                 <configuration>
                     <port>9090</port>
-                    <path>/mgr</path>
+                    <path>/</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <finalName>mgr</finalName>
                     <server>tomcat7</server>
