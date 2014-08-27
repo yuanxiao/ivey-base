@@ -1,4 +1,4 @@
-package com.ivey.web.base;
+package com.ivey.commons.utils;
 
 public class CommonUtils {
 
