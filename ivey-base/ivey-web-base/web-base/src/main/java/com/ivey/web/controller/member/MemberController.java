@@ -16,7 +16,7 @@ public class MemberController extends BaseController {
 	@RequestMapping(value="/login",method = RequestMethod.POST)
 	public String login(Model model,MemberDto member){
 		if (Validator.isNullOrEmpty(member)){
-				
+			return "/member/login";
 		}
 		return "";
 	}
