@@ -10,5 +10,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>web-base</module>
+    <module>ivey-web-resource</module>
+    <module>ivey-web-member</module>
   </modules>
 </project>
