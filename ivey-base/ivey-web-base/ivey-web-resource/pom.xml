@@ -7,20 +7,27 @@
     <artifactId>ivey-web-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>ivey-base</groupId>
   <artifactId>ivey-web-resource</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>ivey-web-resource</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  
+  <build>
+    <plugins>
+        <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <port>8081</port>
+                    <path>/</path>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <server>tomcat7</server>
+                </configuration>
+            </plugin>
+    </plugins>
+  </build>
+  <packaging>war</packaging>
 </project>

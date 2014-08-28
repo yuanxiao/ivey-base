@@ -1,0 +1,11 @@
+.input-line-default {
+	display: inline;
+	border: 1px solid #CCC;
+	padding: 2px;
+	color: #666;
+	outline: 0px none;
+	vertical-align: top;
+	height: 18px;
+	line-height: 18px;
+	width: 200px;
+}
