@@ -22,8 +22,8 @@ public class MemberController extends BaseController {
 		
 		System.err.println(member);
 		if (Validator.isNullOrEmpty(member)){
-			return "index";
+			return "login";
 		}
-		return "index";
+		return "login";
 	}
 }

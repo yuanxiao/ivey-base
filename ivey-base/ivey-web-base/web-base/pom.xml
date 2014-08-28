@@ -10,7 +10,6 @@
 	</parent>
 	<artifactId>web-base</artifactId>
 	<name>web-base</name>
-	 <packaging>war</packaging>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,4 +69,5 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	<packaging>war</packaging>
 </project>
