@@ -1,11 +1,12 @@
-.input-line-default {
-	display: inline;
-	border: 1px solid #CCC;
-	padding: 2px;
-	color: #666;
-	outline: 0px none;
-	vertical-align: top;
-	height: 18px;
-	line-height: 18px;
-	width: 200px;
+input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit
+}
+
+.input-line {
+	border: 2px solid #e1e1e1;
+	font-weight: normal;
+	text-indent: 43px;
+	font-size: 1.25em
 }

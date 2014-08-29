@@ -24,7 +24,18 @@
     	<groupId>ivey-base</groupId>
     	<artifactId>web-base</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
-    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>modules-member</groupId>
+    	<artifactId>modules-member</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
+     <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>LATEST</version>
+        <scope>provided</scope>
     </dependency>
   </dependencies>
   
