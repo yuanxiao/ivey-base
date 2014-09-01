@@ -6,9 +6,5 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <description>Base project of ivey</description>
-  <modules>
-    <module>ivey-commons</module>
-    <module>ivey-web-base</module>
-    <module>modules</module>
-  </modules>
+   
 </project>

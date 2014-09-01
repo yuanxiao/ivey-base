@@ -7,12 +7,22 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ivey.module.member.repo.Member;
+import com.ivey.module.platform.repo.Region;
+
 @Repository
 public class LoginInterceptor implements HandlerInterceptor {
 
 	public LoginInterceptor() {
 
-		System.out.println("Constructor  called ");
+		
+		Member me = new Member();
+		
+		me.setAddress("abc");
+		
+		Region re = new Region();
+		re.setName("cde");
+		System.out.println("Constructor  called " + re.getName());
 	}
 
  
