@@ -88,4 +88,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		</property>
 	</bean>
 
+	<bean id="memberBaseDao" class="com.ivey.modules.member.dao.MemberBaseDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+
 </beans>

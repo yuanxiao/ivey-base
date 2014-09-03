@@ -78,5 +78,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 			<ref local="platformSessionFactory" />
 		</property>
 	</bean>
+		<bean id="platformBaseDao" class="com.ivey.modules.platform.dao.PlatformBaseDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
 
 </beans>
