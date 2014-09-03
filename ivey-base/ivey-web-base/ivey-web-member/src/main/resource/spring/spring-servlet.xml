@@ -54,4 +54,5 @@
 
 	<import resource="classpath*:spring/spring-interceptor.xml" />
 	<import resource="classpath*:spring/spring-datasource.xml" />
+	<import resource="classpath*:spring/spring.xml" />
 </beans>

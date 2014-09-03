@@ -7,6 +7,76 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	 
+	<!--======================== dataconfigure ========================== -->
+	<!--配置连接池（jdbc方式） -->
+	<bean id="platformDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.mysql.driver}" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ivey_platform" />
+		<property name="username" value="root" />
+		<property name="password" value="root1234" />
+	</bean>
+
+	<!--配置hibernate 上下文 -->
+	<bean id="platformSessionFactory "
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="platformDataSource" />
+
+		<!--包级扫描 hibernate实体类 -->
+		<property name="annotatedClasses">
+			<list>
+				<value>com.ivey.module.platform.repo.Region</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.cache.provider_class">
+					net.sf.ehcache.hibernate.EhCacheProvider
+				</prop>
+				<prop key="hibernate.cache.region.factory_class">
+					org.hibernate.cache.ehcache.EhCacheRegionFactory
+				</prop>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL5Dialect
+				</prop>
+				<prop key="hibernate.cache.use_query_cache">
+					false
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">
+					${hibernate.hbm2ddl.auto}
+				</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+				<!--<prop key=""hibernate.hbm2ddl.auto">update</prop> -->
+				<prop key="hibernate.cache.use_second_level_cache">
+					false
+				</prop>
+				<prop key="hibernate.max_fetch_depth">
+					2
+				</prop>
+				<prop key="hibernate.jdbc.fetch_size">
+					50
+				</prop>
+				<prop key="hibernate.jdbc.batch_size">
+					50
+				</prop>
+				<prop key="hibernate.use_outer_join">
+					false
+				</prop>
+				<prop key="hibernate.format_sql">
+					true
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 配置jdbc事务 -->
+	<bean id="platformTransactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="platformSessionFactory" />
+		</property>
+	</bean>
 
 </beans>

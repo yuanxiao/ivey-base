@@ -18,23 +18,23 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<!--======================== dataconfigure ========================== -->
 	<!--配置连接池（jdbc方式） -->
-	<bean id="dataSource"
+	<bean id="memberDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${db.mysql.driver}" />
-		<property name="url" value="${member.db.mysql.url}" />
-		<property name="username" value="${db.mysql.user}" />
-		<property name="password" value="${db.mysql.password}" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ivey_member" />
+		<property name="username" value="root" />
+		<property name="password" value="root1234" />
 	</bean>
 
 	<!--配置hibernate 上下文 -->
-	<bean id="sessionFactory "
+	<bean id="memberSessionFactory "
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="memberDataSource" />
 
 		<!--包级扫描 hibernate实体类 -->
 		<property name="annotatedClasses">
 			<list>
-				<value></value>
+				<value>com.ivey.module.member.repo.Member</value>
 			</list>
 		</property>
 
@@ -81,10 +81,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		</property>
 	</bean>
 	<!-- 配置jdbc事务 -->
-	<bean id="transactionManager"
+	<bean id="memberTransactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory">
-			<ref local="sessionFactory" />
+			<ref local="memberSessionFactory" />
 		</property>
 	</bean>
 
