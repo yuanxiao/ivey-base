@@ -1,18 +1,10 @@
 package com.ivey.module.base.dao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
-public class MemberBaseDao {
 
-	private JdbcTemplate jdbcTemplate;
-
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
-
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+@Component
+public class MemberBaseDao extends ModulesBaseDao{
 
 	public void save() {
 		System.err.println(jdbcTemplate.getDataSource());

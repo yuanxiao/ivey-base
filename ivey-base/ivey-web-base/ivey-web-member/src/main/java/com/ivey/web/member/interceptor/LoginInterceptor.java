@@ -1,5 +1,7 @@
 package com.ivey.web.member.interceptor;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,8 +11,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ivey.module.base.dao.MemberBaseDao;
-import com.ivey.module.base.dao.PlatformBaseDao;
+import com.ivey.module.member.dao.MemberInfoDao;
+import com.ivey.module.member.repo.Member;
 
 @Repository
 public class LoginInterceptor implements HandlerInterceptor {
@@ -18,13 +20,17 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Autowired
 	ApplicationContext context;
 
+	@Autowired
+	private MemberInfoDao memberInfoDao;
+
+	 
+
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-		MemberBaseDao dao = (MemberBaseDao) context.getBean("memberBaseDao");
-		dao.save();
-		PlatformBaseDao pdao = (PlatformBaseDao) context.getBean("platformBaseDao");
-		pdao.save();
-
+		 List<Member> memberList = memberInfoDao.query(); 
+		
+		System.err.println(memberList);
+		
 		return true;
 	}
 
