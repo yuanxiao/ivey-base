@@ -13,6 +13,16 @@
 	<name>modules-member</name>
 	<url>http://maven.apache.org</url>
 	
+		<dependencies>
+		<dependency>
+			<groupId>modules</groupId>
+			<artifactId>module-base</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	
+	
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -48,16 +58,6 @@
 				</executions>
 
 			</plugin>
-
 		</plugins>
-
 	</build>
-	<dependencies>
-		<dependency>
-			<groupId>modules</groupId>
-			<artifactId>modules</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<type>pom</type>
-		</dependency>
-	</dependencies>
 </project>
