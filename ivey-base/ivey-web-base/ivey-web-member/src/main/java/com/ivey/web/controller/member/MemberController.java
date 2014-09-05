@@ -1,6 +1,5 @@
 package com.ivey.web.controller.member;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +12,6 @@ import com.ivey.web.controller.BaseController;
 
 @Controller
 @RequestMapping(value = "/member")
-@Component
 public class MemberController extends BaseController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -39,6 +37,8 @@ public class MemberController extends BaseController {
 
 	@RequestMapping(value = "index")
 	public String index(Model model) {
+		
+		model.addAttribute("name", "yuanxiao");
 		return "index";
 	}
 }

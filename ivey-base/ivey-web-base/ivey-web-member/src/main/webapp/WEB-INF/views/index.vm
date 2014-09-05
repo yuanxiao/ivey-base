@@ -1,0 +1,14 @@
+
+$!name
+
+#set($index ="yuanxiao")
+
+
+  #if($!name==$!index)
+	
+	
+	TRUE
+	
+	#end
+
+#parse("WEB-INF/views/login.vm")

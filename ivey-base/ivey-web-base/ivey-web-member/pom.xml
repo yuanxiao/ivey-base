@@ -26,19 +26,17 @@
 		</dependency>
 
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>LATEST</version>
-			<scope>provided</scope>
-		</dependency>
-
-
-		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-resources-plugin</artifactId>
 			<version>2.6</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>LATEST</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>modules-platform</groupId>
@@ -49,6 +47,12 @@
 			<groupId>web-base</groupId>
 			<artifactId>web-base</artifactId>
 			<version>4.0.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>struts-taglib</artifactId>
+					<groupId>org.apache.struts</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
