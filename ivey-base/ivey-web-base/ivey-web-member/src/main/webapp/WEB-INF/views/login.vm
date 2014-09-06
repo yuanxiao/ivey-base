@@ -1,15 +1,8 @@
 
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-    <meta http-equiv="Content-Language" content="zh-CN" />  
-
-<script type="text/javascript"  src="http://localhost:8081/static/public/js/jquery-1.11.1.js"></script>
 <script type="text/javascript"  src="http://localhost:8081/static/member/js/login.js"></script>
 
 <link rel="stylesheet" type="text/css" media="screen"
-	href="http://localhost:8081/static/public/css/layout.css" />
-<link rel="stylesheet" type="text/css" media="screen"
-	href="http://localhost:8081/static/public/css/login.css" />
+	href="http://localhost:8081/static/member/css/login.css" />
 <body>
 	<div class="header"></div>
 	<div class="main">
@@ -21,22 +14,19 @@
 				</div>
 				<div class="login-user col-xs-12 col-sm-6 col-md-6 col-lg-5">
 					<div class="login-part">
-						<h3>帐号登录</h3>
+						<h3></h3>
 						<div class="user-info">
 							<div class="user-pass">
 
-								<form id="fm1"
-									action="/account/login;jsessionid=2BDCB5B6039F3F54712A3035A159AA66.tomcat1"
-									method="post">
-
+								<form id="fm1" method="post">
 									<input  name="userName" tabindex="1"
-										placeholder="输入用户名/邮箱" class="user-name" type="text" value="">
+										placeholder="输入用户名/邮箱" class="user-name" type="text" value="" required-msg="Please input your username ">
 									<input  name="userPwd" tabindex="2"
-										placeholder="输入密码" class="pass-word" type="password" value=""
+										placeholder="输入密码" class="pass-word" type="password" value=""  required-msg="Please input your password "
 										autocomplete="off">
-
 									<div class="error-mess" style="display: none;">
-										<span class="error-icon"></span><span id="error-message"></span>
+										<span class="error-icon"></span><span id="error-message">
+										</span>
 									</div>
 									<input class="logging"   value="登 录" tabindex="5" id="loginBtn"
 										type="button">

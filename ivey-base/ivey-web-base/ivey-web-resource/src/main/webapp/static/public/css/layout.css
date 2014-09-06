@@ -10,3 +10,10 @@ input {
 	text-indent: 43px;
 	font-size: 1.25em
 }
+
+.input-error {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	bg-color:red
+}

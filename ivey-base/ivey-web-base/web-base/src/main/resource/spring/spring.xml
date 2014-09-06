@@ -12,7 +12,7 @@
 	<bean id="velocityConfig"
 		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
 		<property name="resourceLoaderPath">
-			<value>/</value>
+			<value>/WEB-INF/views</value>
 		</property>
 		<property name="velocityProperties">
 			<props>
@@ -22,31 +22,42 @@
 			</props>
 		</property>
 	</bean>
-	
-	
-	    <bean name="negotiationViewResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">   
-        <property name="order" value="1"></property>   
-        <property name="mediaTypes">  
-               <map>  
-                   <entry key="json" value="application/json" />  
-               </map>  
-           </property>  
-           <property name="viewResolvers">  
-            <list>  
-                <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">  
-                <property name="order" value="2" />  
-                    <property name="prefix"><value>/WEB-INF/views/</value></property>  
-                    <property name="suffix"><value>.vm</value></property>  
-                    <property name="exposeSpringMacroHelpers"><value>true</value></property>  
-                    <property name="contentType"><value>text/html;charset=utf-8</value></property>  
-                </bean>  
-            </list>  
-        </property>  
-        <property name="defaultViews">  
-            <list>  
-                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />  
-            </list>  
-        </property>  
-    </bean>  
+
+
+	<bean name="negotiationViewResolver"
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1"></property>
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+			</map>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean id="viewResolver"
+					class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+					<property name="order" value="2" />
+					<property name="suffix">
+						<value>.vm</value>
+					</property>
+					<property name="exposeSpringMacroHelpers">
+						<value>true</value>
+					</property>
+					<property name="layoutUrl">
+						<value>layout/default.vm</value>
+					</property>
+					<property name="contentType">
+						<value>text/html;charset=utf-8</value>
+					</property>
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+			</list>
+		</property>
+	</bean>
 
 </beans>
