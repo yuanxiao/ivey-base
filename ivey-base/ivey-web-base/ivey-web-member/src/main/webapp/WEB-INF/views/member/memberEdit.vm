@@ -1,0 +1,114 @@
+
+<script type="text/javascript"  src="http://localhost:8081/static/member/js/memberEdit.js"></script>
+
+
+<style>
+    body {
+    font-size: 62.5%;
+    }
+    label {
+    display: inline-block;
+    width: 100px;
+	float:left;
+    }
+    legend {
+    padding: 0.5em;
+    }
+    fieldset fieldset label {
+    display: block;
+    }
+    #signupForm {
+    width: 670px;
+    }
+    #signupForm label.error {
+    margin-left: 10px;
+    width: auto;
+    display: inline;
+    }
+</style>
+<form class="cmxform" id="signupForm" method="get" action="">
+    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+        <legend class="ui-widget ui-widget-header ui-corner-all">Validating a complete form</legend>
+        <fieldset >
+            <legend >Basic Information</legend>
+            <p>
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="firstName" type="text" />
+            </p>
+            <p>
+                <label for="lastName">Last Name</label>
+                <input id="lastName" name="lastName" type="text" />
+            </p>
+            <p>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" />
+            </p>
+            <p>
+                <label for="birthday">Birthday</label>
+                <input id="birthday" name="birthday" type="text" />
+            </p>
+            <p>
+                <label for="mobilePhone">Mobile Phone</label>
+                <input id="mobilePhone" name="mobilePhone" type="text" />
+            </p>
+            <p>
+                <label for="telPhone">Telphone</label>
+                <input id="telPhone" name="telPhone" type="text" />
+            </p>
+            <p>
+                <label for="sex">Male</label>
+                <input type="radio" class="checkbox"  name="sex"  value="male"/>
+            </p>
+			<p>
+				    <label for="sex">Female</label>
+					 <input type="radio" class="checkbox"   name="sex"  value ="female"/>
+			</p>
+			
+</fieldset>
+<fieldset >
+    <legend >Address</legend>
+	<p>
+    <label for="province">Province</label>
+    <select    id="province" name="province">
+        <option>Please select  </option>
+    </select>
+	</p>
+	<p>
+    <label for="city">City</label>
+    <select    id="city" name="city">
+        <option>Please select  </option>
+    </select>
+	</p>
+	<p>
+    <label for="district">District</label>
+    <select    id="district" name="district">
+        <option>Please select  </option>
+    </select>
+	</p>
+</fieldset>
+<p>
+    <label for="newsletter">I'd like to receive the newsletter</label>
+        <input type="checkbox" class="checkbox" id="newsletter" name="newsletter" />
+</p>
+<fieldset id="newsletter_topics" class="ui-widget-content ui-corner-all">
+    <legend class="ui-widget-header ui-corner-all">Topics (select at least two) - note: would be hidden when newsletter isn't selected, but is visible here for the demo</legend>
+        <label for="topic_marketflash">
+            <input type="checkbox" id="topic_marketflash" value="marketflash" name="topic" />
+            Marketflash
+        </label>
+        <label for="topic_fuzz">
+            <input type="checkbox" id="topic_fuzz" value="fuzz" name="topic" />
+            Latest fuzz
+        </label>
+        <label for="topic_digester">
+            <input type="checkbox" id="topic_digester" value="digester" name="topic" />
+            Mailing list digester
+        </label>
+        <label for="topic" class="error">Please select at least two topics you'd like to receive.</label>
+</fieldset>
+<p>
+    <button class="submit" type="submit">Submit</button>
+</p>
+</fieldset>
+</form>
+ 

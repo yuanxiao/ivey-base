@@ -88,6 +88,11 @@
 			<artifactId>javassist</artifactId>
 			<version>3.18.1-GA</version>
 		</dependency>
+		<dependency>
+			<groupId>ivey-base</groupId>
+			<artifactId>ivey-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	
 </project>

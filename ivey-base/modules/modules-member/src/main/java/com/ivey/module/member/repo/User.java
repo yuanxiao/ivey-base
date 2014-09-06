@@ -12,7 +12,8 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USER_ID")
 	private Long userId;
 	@Column(name = "USER_NAME")
 	private String userName;
@@ -22,8 +23,8 @@ public class User {
 	private String email;
 	@Column(name = "MOBILE")
 	private String mobile;
-	@Column(name = "ADDRESS")
-	private String address;
+	@Column(name = "USER_TYPE")
+	private String userType;
 
 	public Long getUserId() {
 		return userId;
@@ -65,12 +66,12 @@ public class User {
 		this.mobile = mobile;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getUserType() {
+		return userType;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
 }

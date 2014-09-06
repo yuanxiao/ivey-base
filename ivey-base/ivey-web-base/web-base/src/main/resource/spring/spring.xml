@@ -7,6 +7,12 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
+	<context:component-scan base-package="com.ivey">
+		<context:include-filter type="regex"
+			expression=".service.*" />
+	</context:component-scan>
+
+	<mvc:annotation-driven />
 
 
 	<bean id="velocityConfig"
@@ -37,18 +43,12 @@
 				<bean id="viewResolver"
 					class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
 					<property name="order" value="2" />
-					<property name="suffix">
-						<value>.vm</value>
-					</property>
-					<property name="exposeSpringMacroHelpers">
-						<value>true</value>
-					</property>
-					<property name="layoutUrl">
-						<value>layout/default.vm</value>
-					</property>
-					<property name="contentType">
-						<value>text/html;charset=utf-8</value>
-					</property>
+					<property name="suffix" value=".vm" />
+					<property name="exposeSpringMacroHelpers" value="true" />
+					<property name="contentType" value="text/html;charset=utf-8" />
+					<property name="exposeRequestAttributes" value="false" />
+					<property name="exposeSessionAttributes" value="false" />
+					<property name="layoutUrl" value="layout/default.vm" />
 				</bean>
 			</list>
 		</property>

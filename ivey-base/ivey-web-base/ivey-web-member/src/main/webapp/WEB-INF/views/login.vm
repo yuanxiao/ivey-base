@@ -1,6 +1,12 @@
 
 <script type="text/javascript"  src="http://localhost:8081/static/member/js/login.js"></script>
 
+
+<script >
+		var loginError = '$!loginError';
+</script>
+
+
 <link rel="stylesheet" type="text/css" media="screen"
 	href="http://localhost:8081/static/member/css/login.css" />
 <body>
@@ -20,7 +26,7 @@
 
 								<form id="fm1" method="post">
 									<input  name="userName" tabindex="1"
-										placeholder="输入用户名/邮箱" class="user-name" type="text" value="" required-msg="Please input your username ">
+										placeholder="输入用户名/邮箱" class="user-name" type="text" value="$!userName" required-msg="Please input your username ">
 									<input  name="userPwd" tabindex="2"
 										placeholder="输入密码" class="pass-word" type="password" value=""  required-msg="Please input your password "
 										autocomplete="off">

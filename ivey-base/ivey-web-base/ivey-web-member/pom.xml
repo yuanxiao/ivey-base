@@ -19,11 +19,6 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>modules-member</groupId>
-			<artifactId>modules-member</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -38,11 +33,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>modules-platform</groupId>
-			<artifactId>modules-platform</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>web-base</groupId>
 			<artifactId>web-base</artifactId>
