@@ -20,7 +20,7 @@ public class WebBaseInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-
+	
 		System.err.println("WebBaseInterceptor  postHandle");
 	}
 

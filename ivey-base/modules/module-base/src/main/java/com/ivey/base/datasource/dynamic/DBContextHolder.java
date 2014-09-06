@@ -1,4 +1,4 @@
-package com.ivey.dynamic.datasource;
+package com.ivey.base.datasource.dynamic;
 
 public class DBContextHolder {
 	public static final String DATA_SOURCE_MEMBER = "memberDataSource";

@@ -2,7 +2,6 @@ jQuery(document).ready(function() {
 
 	jQuery("#loginBtn").on("click", function() {
 		if (validateForm()) {
-			jQuery("#fm1").submit();
 			Login.login();
 		}
 	});
@@ -10,29 +9,21 @@ jQuery(document).ready(function() {
 
 var Login = {
 	login : function() {
-		jQuery.ajax({
-			url : "/member/login",
-			data : {
-				userName : jQuery("input[name='userName']").val(),
-				userPwd : jQuery("input[name='userPwd']").val()
-			},
-			type : "post",
-			successL : function(data) {
-				console.dir(data);
-			},
-			error : function() {
-
-			}
-		});
+			jQuery("#fm1").attr("action","http://localhost:8082/member/login");
+			jQuery("#fm1").attr("method","post");
+			jQuery("#fm1").submit();
 	},
 };
 function validateForm() {
 
-	jQuery("#fm1").find(" input ").each(function(){
-			if(isNull(this.value)){
-				jQuery("#error-message").text(jQuery(this).attr('required-msg'));
-				jQuery("#error-message").parent().show();
-				return false;
-			}
+	var result = true;
+	jQuery("#fm1").find(" input ").each(function() {
+		if (isNull(this.value)) {
+			result = false;
+			jQuery("#error-message").text(jQuery(this).attr('required-msg'));
+			jQuery("#error-message").parent().show();
+			return false;
+		}
 	});
+	return result;
 }

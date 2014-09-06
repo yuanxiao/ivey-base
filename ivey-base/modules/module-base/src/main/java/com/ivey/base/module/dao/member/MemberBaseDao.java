@@ -1,6 +1,8 @@
-package com.ivey.module.base.dao;
+package com.ivey.base.module.dao.member;
 
 import org.springframework.stereotype.Component;
+
+import com.ivey.base.module.dao.ModulesBaseDao;
 
 
 @Component

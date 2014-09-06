@@ -1,4 +1,4 @@
-package com.ivey.dynamic.datasource;
+package com.ivey.base.datasource.dynamic;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

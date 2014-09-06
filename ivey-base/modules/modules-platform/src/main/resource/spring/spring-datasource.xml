@@ -21,13 +21,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<bean id="platformSessionFactory "
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="platformDataSource" />
-
 		<!--包级扫描 hibernate实体类 -->
-		<property name="annotatedClasses">
-			<list>
-				<value>com.ivey.module.platform.repo.Region</value>
-			</list>
-		</property>
+		<property name="packagesToScan" value="com.ivey.**.platform.repo" />
 
 		<property name="hibernateProperties">
 			<props>
@@ -78,8 +73,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 			<ref local="platformSessionFactory" />
 		</property>
 	</bean>
-		<!-- <bean id="platformBaseDao" class="com.ivey.module.base.dao.PlatformBaseDao">
-		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
-	</bean> -->
+	<!-- <bean id="platformBaseDao" class="com.ivey.module.base.dao.PlatformBaseDao"> 
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property> </bean> -->
 
 </beans>

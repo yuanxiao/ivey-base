@@ -1,4 +1,4 @@
-package com.ivey.base.dao.interceptor;
+package com.ivey.base.datasource.interceptor;
 
 import java.lang.reflect.Method;
 
@@ -6,7 +6,9 @@ import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.ThrowsAdvice;
 
-import com.ivey.dynamic.datasource.DBContextHolder;
+import com.ivey.base.datasource.dynamic.DBContextHolder;
+import com.ivey.base.module.dao.member.MemberBaseDao;
+import com.ivey.base.module.dao.platform.PlatformBaseDao;
 
 public class DataSourceMethodInterceptor implements MethodBeforeAdvice, AfterReturningAdvice, ThrowsAdvice {
 
@@ -54,11 +56,11 @@ public class DataSourceMethodInterceptor implements MethodBeforeAdvice, AfterRet
 
 	public void before(Method method, Object[] args, Object target) throws Throwable {
 
-		if (target instanceof com.ivey.module.base.dao.MemberBaseDao) {
+		if (target instanceof MemberBaseDao) {
 			System.err.println("Member database");
 			DBContextHolder.setDBType(DBContextHolder.DATA_SOURCE_MEMBER);
 
-		} else if (target instanceof com.ivey.module.base.dao.PlatformBaseDao) {
+		} else if (target instanceof PlatformBaseDao) {
 			System.err.println("PLatform database");
 			DBContextHolder.setDBType(DBContextHolder.DATA_SOURCE_PLATFORM);
 		}
