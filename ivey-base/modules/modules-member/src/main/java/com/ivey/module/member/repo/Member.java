@@ -1,37 +1,57 @@
-package com.ivey.module.member.dto;
+package com.ivey.module.member.repo;
 
 import java.util.Date;
 
-import com.ivey.base.module.dto.BaseDto;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class MemberDto extends BaseDto {
+@Entity
+@Table(name="T_MEMBER_INFO")
+public class Member {
 
-	private static final long serialVersionUID = 7311566845228854635L;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private Long id;
 
+	@Column(name = "USER_ID")
 	private Long userId;
 
+	@Column(name = "FIRST_NAME")
 	private String firstName;
 
+	@Column(name = "LAST_NAME")
 	private String lastName;
 
+	@Column(name = "SEX")
 	private String sex;
 
+	@Column(name = "BIRTHDAY")
 	private Date birthday;
 
+	@Column(name = "MOBILE_PHONE")
 	private String mobile;
 
+	@Column(name = "TEL_PHONE")
 	private String telPhone;
 
+	@Column(name = "EMAIL")
 	private String email;
 
+	@Column(name = "PROVINCE")
 	private String province;
 
+	@Column(name = "CITY")
 	private String city;
 
+	@Column(name = "DISTRICT")
 	private String district;
 
+	@Column(name = "AVATAR")
 	private String avatar;
 
 	public Long getId() {
@@ -137,4 +157,5 @@ public class MemberDto extends BaseDto {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+
 }

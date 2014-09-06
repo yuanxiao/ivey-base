@@ -13,7 +13,6 @@ public class WebBaseInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-		System.err.println("WebBaseInterceptor  preHandle");
 		return true;
 	}
 
@@ -21,14 +20,12 @@ public class WebBaseInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 	
-		System.err.println("WebBaseInterceptor  postHandle");
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 
-		System.err.println("WebBaseInterceptor  afterCompletion");
 	}
 
 }

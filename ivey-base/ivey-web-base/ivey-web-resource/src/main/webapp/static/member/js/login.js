@@ -1,5 +1,10 @@
 jQuery(document).ready(function() {
 
+	if (!isNull(loginError)) {
+		jQuery("#error-message").text(loginError);
+		jQuery("#error-message").parent().show();
+	}
+
 	jQuery("#loginBtn").on("click", function() {
 		if (validateForm()) {
 			Login.login();
@@ -9,9 +14,9 @@ jQuery(document).ready(function() {
 
 var Login = {
 	login : function() {
-			jQuery("#fm1").attr("action","http://localhost:8082/member/login");
-			jQuery("#fm1").attr("method","post");
-			jQuery("#fm1").submit();
+		jQuery("#fm1").attr("action", "http://localhost:8082/member/login");
+		jQuery("#fm1").attr("method", "post");
+		jQuery("#fm1").submit();
 	},
 };
 function validateForm() {
