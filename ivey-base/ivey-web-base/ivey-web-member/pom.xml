@@ -19,10 +19,11 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>modules-member</groupId>
-			<artifactId>modules-member</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>2.6</version>
 		</dependency>
 
 		<dependency>
@@ -32,23 +33,16 @@
 			<scope>provided</scope>
 		</dependency>
 
-
-		<dependency>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-resources-plugin</artifactId>
-			<version>2.6</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>modules-platform</groupId>
-			<artifactId>modules-platform</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>web-base</groupId>
 			<artifactId>web-base</artifactId>
 			<version>4.0.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>struts-taglib</artifactId>
+					<groupId>org.apache.struts</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 

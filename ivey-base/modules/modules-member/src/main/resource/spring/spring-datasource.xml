@@ -30,14 +30,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<bean id="memberSessionFactory "
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="memberDataSource" />
-
 		<!--包级扫描 hibernate实体类 -->
-		<property name="annotatedClasses">
-			<list>
-				<value>com.ivey.module.member.repo.Member</value>
-			</list>
-		</property>
-
+		<property name="packagesToScan" value="com.ivey.**.member.repo" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.cache.provider_class">
@@ -88,8 +82,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		</property>
 	</bean>
 
-	<!-- <bean id="memberBaseDao" class="com.ivey.module.base.dao.MemberBaseDao">
-		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
-	</bean> -->
+	<!-- <bean id="memberBaseDao" class="com.ivey.module.base.dao.MemberBaseDao"> 
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property> </bean> -->
 
 </beans>

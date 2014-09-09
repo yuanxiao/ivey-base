@@ -10,9 +10,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	
 	<mvc:interceptors>
 		<bean class="com.ivey.web.base.interceptor.WebBaseInterceptor"></bean>
-		<mvc:interceptor>
-			<mvc:mapping path="/member/**"/>
-			<bean class="com.ivey.web.member.interceptor.LoginInterceptor"></bean>
-		</mvc:interceptor>
+			<bean class="com.ivey.web.base.interceptor.LoginInterceptor"></bean>
+		<!-- <mvc:interceptor>
+			<mvc:mapping path="*"/>
+		
+		</mvc:interceptor> -->
 	</mvc:interceptors>
 </beans>

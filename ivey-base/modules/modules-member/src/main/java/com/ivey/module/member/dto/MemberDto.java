@@ -1,13 +1,46 @@
 package com.ivey.module.member.dto;
 
-public class MemberDto {
+import java.util.Date;
+
+import com.ivey.base.module.dto.BaseDto;
+
+public class MemberDto extends BaseDto {
+
+	private static final long serialVersionUID = 7311566845228854635L;
+
+	private Long id;
 
 	private Long userId;
-	private String userName;
-	private String userPwd;
-	private String email;
+
+	private String firstName;
+
+	private String lastName;
+
+	private String sex;
+
+	private Date birthday;
+
 	private String mobile;
-	private String address;
+
+	private String telPhone;
+
+	private String email;
+
+	private String province;
+
+	private String city;
+
+	private String district;
+
+	private String avatar;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Long getUserId() {
 		return userId;
@@ -17,28 +50,36 @@ public class MemberDto {
 		this.userId = userId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getUserPwd() {
-		return userPwd;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setUserPwd(String userPwd) {
-		this.userPwd = userPwd;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getSex() {
+		return sex;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getMobile() {
@@ -49,12 +90,51 @@ public class MemberDto {
 		this.mobile = mobile;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getTelPhone() {
+		return telPhone;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setTelPhone(String telPhone) {
+		this.telPhone = telPhone;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 }

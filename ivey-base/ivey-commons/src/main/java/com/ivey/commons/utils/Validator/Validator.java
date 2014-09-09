@@ -13,8 +13,11 @@ public class Validator {
 		} else if (obj instanceof String) {
 			return obj == null || "".equals(obj);
 		} else {
-			return obj==null;
+			return obj == null;
 		}
 	}
-	
+
+	public static boolean isNotNullOrEmpty(Object obj) {
+		return !isNullOrEmpty(obj);
+	}
 }

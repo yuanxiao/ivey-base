@@ -15,7 +15,7 @@
 	<mvc:annotation-driven />
 
 
-	<bean id="dynamicDataSource" class="com.ivey.dynamic.datasource.DynamicDataSource">
+	<bean id="dynamicDataSource" class="com.ivey.base.datasource.dynamic.DynamicDataSource">
 		<!-- 通过key-value的形式来关联数据源 -->
 		<property name="targetDataSources">
 			<map>
@@ -46,7 +46,7 @@
 	<bean id="dataSourceAdvisor"
 		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
 		<property name="advice">
-			<bean class="com.ivey.base.dao.interceptor.DataSourceMethodInterceptor" />
+			<bean class="com.ivey.base.datasource.interceptor.DataSourceMethodInterceptor" />
 		</property>
 		<property name="patterns">
 			<list>
