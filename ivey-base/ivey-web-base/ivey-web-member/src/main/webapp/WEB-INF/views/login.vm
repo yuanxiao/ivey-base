@@ -1,0 +1,50 @@
+
+<script type="text/javascript"  src="http://localhost:8081/static/member/js/login.js"></script>
+
+
+<script >
+		var loginError = '$!loginError';
+</script>
+
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="http://localhost:8081/static/member/css/login.css" />
+<body>
+	<div class="header"></div>
+	<div class="main">
+		<div class="container container-custom">
+			<div class="row wrap-login">
+				<div
+					class="login-banner col-xs-6 col-sm-6 col-md-6 col-lg-6 hidden-xs">
+
+				</div>
+				<div class="login-user col-xs-12 col-sm-6 col-md-6 col-lg-5">
+					<div class="login-part">
+						<h3></h3>
+						<div class="user-info">
+							<div class="user-pass">
+
+								<form id="fm1" method="post">
+									<input  name="userName" tabindex="1"
+										placeholder="输入用户名/邮箱" class="user-name" type="text" value="$!userName" required-msg="Please input your username ">
+									<input  name="userPwd" tabindex="2"
+										placeholder="输入密码" class="pass-word" type="password" value=""  required-msg="Please input your password "
+										autocomplete="off">
+									<div class="error-mess" style="display: none;">
+										<span class="error-icon"></span><span id="error-message">
+										</span>
+									</div>
+									<input class="logging"   value="登 录" tabindex="5" id="loginBtn"
+										type="button">
+
+								</form>
+							</div>
+						</div>
+						<div class="line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
