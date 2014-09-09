@@ -14,7 +14,6 @@ import org.springframework.web.util.CookieGenerator;
 
 import com.ivey.commons.utils.Validator.Validator;
 import com.ivey.web.base.annotation.Login;
-import com.ivey.web.base.app.context.AppUser;
 import com.ivey.web.base.constants.WebConstants;
 import com.ivey.web.base.session.MemberDetail;
 
@@ -22,31 +21,30 @@ import com.ivey.web.base.session.MemberDetail;
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	@Override
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		if (handler instanceof HandlerMethod) {
 			HandlerMethod method = (HandlerMethod) handler;
 			Login login = method.getMethodAnnotation(Login.class);
+			String fromUrl = request.getRequestURL().toString();
 			if (login != null) {
 				if (!validateLogin(request, response, login)) {
-					response.sendRedirect("/member/index");
+					response.sendRedirect("/member/index?fromUrl=" + fromUrl);
 				}
 			}
 		}
 		return true;
 	}
 
-	private boolean validateLogin(HttpServletRequest request,
-			HttpServletResponse response, Login login) throws IOException {
+	private boolean validateLogin(HttpServletRequest request, HttpServletResponse response, Login login)
+			throws IOException {
 
-		// Authrity level = login.level();
 		HttpSession session = request.getSession();
 		Object obj = session.getAttribute(WebConstants.MEMBER_SESSION_KEY);
 		if (Validator.isNotNullOrEmpty(obj)) {
 			MemberDetail memberDetail = (MemberDetail) obj;
 			Login.Authrity level = login.level();
-			if (!level.equals(memberDetail.getLevel())) {
-				return false;
+			if (level.compareTo(memberDetail.getLevel()) > 0) {
+				response.sendRedirect("/noPromission");
 			}
 			return true;
 		} else {
@@ -55,11 +53,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	}
 
 	@Override
-	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler,
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		Boolean loginResult = (Boolean) modelAndView.getModel().get(
-				"loginResult");
+		Boolean loginResult = (Boolean) modelAndView.getModel().get("loginResult");
 		if (loginResult != null && loginResult) {
 			CookieGenerator generator = new CookieGenerator();
 			generator.setCookiePath("/");
@@ -71,8 +67,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	}
 
 	@Override
-	public void afterCompletion(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex)
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 
 	}
