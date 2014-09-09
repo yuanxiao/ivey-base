@@ -25,6 +25,9 @@
 							<div class="user-pass">
 
 								<form id="fm1" method="post">
+									#if($!fromUrl)
+									<input  type="hidden" name="fromUrl"  value="$!fromUrl" />
+									#end
 									<input  name="userName" tabindex="1"
 										placeholder="输入用户名/邮箱" class="user-name" type="text" value="$!userName" required-msg="Please input your username ">
 									<input  name="userPwd" tabindex="2"
