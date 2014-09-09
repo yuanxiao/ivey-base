@@ -29,7 +29,7 @@ public class LoginController extends BaseController {
 		if (!loginResult) {
 			model.addFlashAttribute("loginError", "Login error ,please try again ");
 		} else {
-
+			model.addFlashAttribute("loginResult", Boolean.TRUE);
 		}
 		model.addFlashAttribute("userName", user.getUserName());
 		return !loginResult ? "redirect:index" : "redirect:welcome";
