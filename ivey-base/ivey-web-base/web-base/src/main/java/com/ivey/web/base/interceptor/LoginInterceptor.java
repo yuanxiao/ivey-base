@@ -1,5 +1,7 @@
 package com.ivey.web.base.interceptor;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,30 +13,22 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.util.CookieGenerator;
 
 import com.ivey.commons.utils.Validator.Validator;
-import com.ivey.module.member.dto.UserDto;
 import com.ivey.web.base.annotation.Login;
 import com.ivey.web.base.app.context.AppUser;
+import com.ivey.web.base.constants.WebConstants;
+import com.ivey.web.base.session.MemberDetail;
 
 @Repository
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request,
+			HttpServletResponse response, Object handler) throws Exception {
 		if (handler instanceof HandlerMethod) {
 			HandlerMethod method = (HandlerMethod) handler;
 			Login login = method.getMethodAnnotation(Login.class);
 			if (login != null) {
-				// Authrity level = login.level();
-				HttpSession session = request.getSession();
-				UserDto appUser = AppUser.getUserDto();
-				if (Validator.isNotNullOrEmpty(appUser)) {
-					String appUid = AppUser.getUid();
-					Object uid = session.getAttribute("uid");
-					if (uid == null || !appUid.equals(uid.toString())) {
-						AppUser.setUid(null);
-						response.sendRedirect("/member/index");
-					}
-				} else {
+				if (!validateLogin(request, response, login)) {
 					response.sendRedirect("/member/index");
 				}
 			}
@@ -42,14 +36,34 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		return true;
 	}
 
+	private boolean validateLogin(HttpServletRequest request,
+			HttpServletResponse response, Login login) throws IOException {
+
+		// Authrity level = login.level();
+		HttpSession session = request.getSession();
+		Object obj = session.getAttribute(WebConstants.MEMBER_SESSION_KEY);
+		if (Validator.isNotNullOrEmpty(obj)) {
+			MemberDetail memberDetail = (MemberDetail) obj;
+			Login.Authrity level = login.level();
+			if (!level.equals(memberDetail.getLevel())) {
+				return false;
+			}
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+	public void postHandle(HttpServletRequest request,
+			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		Boolean loginResult = (Boolean) modelAndView.getModel().get("loginResult");
+		Boolean loginResult = (Boolean) modelAndView.getModel().get(
+				"loginResult");
 		if (loginResult != null && loginResult) {
 			CookieGenerator generator = new CookieGenerator();
 			generator.setCookiePath("/");
-			generator.setCookieHttpOnly(false);
+			generator.setCookieHttpOnly(true);
 			generator.setCookieDomain("localhost");
 			generator.setCookieName("uId");
 			generator.addCookie(response, "yxka8");
@@ -57,7 +71,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	}
 
 	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+	public void afterCompletion(HttpServletRequest request,
+			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 
 	}
