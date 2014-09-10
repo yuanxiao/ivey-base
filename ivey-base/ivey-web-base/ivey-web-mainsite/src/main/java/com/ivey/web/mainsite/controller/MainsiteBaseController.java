@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ivey.web.base.session.MemberDetail;
 import com.ivey.web.controller.BaseController;
 
 @Controller
@@ -12,6 +13,9 @@ public class MainsiteBaseController extends BaseController {
 
 	@RequestMapping("/index")
 	public String mainSite(Model model) {
-			return "index";
+
+		MemberDetail memberDetail = super.getMemberDetail();
+		System.err.println(memberDetail);
+		return "index";
 	}
 }

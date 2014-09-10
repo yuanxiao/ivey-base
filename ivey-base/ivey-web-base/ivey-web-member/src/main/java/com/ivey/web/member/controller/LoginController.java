@@ -15,6 +15,7 @@ import com.ivey.commons.utils.Validator.Validator;
 import com.ivey.module.member.dto.UserDto;
 import com.ivey.web.base.annotation.Login;
 import com.ivey.web.base.annotation.Login.Authrity;
+import com.ivey.web.base.session.MemberDetail;
 import com.ivey.web.controller.BaseController;
 import com.ivey.web.member.business.handler.MemberLoginHandler;
 
@@ -28,10 +29,13 @@ public class LoginController extends BaseController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam(value = "fromUrl", required = false) String fromUrl, RedirectAttributes model,
 			UserDto user, HttpServletRequest request, HttpServletResponse response) {
-		boolean loginResult = memberLoginHandler.doLogin(user, request, response);
-		if (!loginResult) {
+		MemberDetail memberDetail = memberLoginHandler.doLogin(user, request, response);
+		boolean loginResult = false;
+		if (memberDetail==null) {
 			model.addFlashAttribute("loginError", "Login error ,please try again ");
 		} else {
+			loginResult = true;
+			super.setMemberDetail(memberDetail);
 			model.addFlashAttribute("loginResult", Boolean.TRUE);
 			model.addFlashAttribute("userName", user.getUserName());
 			if(Validator.isNullOrEmpty(fromUrl)) {
@@ -52,6 +56,9 @@ public class LoginController extends BaseController {
 	@Login(level = Authrity.MEMBER)
 	@RequestMapping(value = "member")
 	public String welcome(Model model) {
+		
+		MemberDetail memberDetail = super.getMemberDetail();
+		System.err.println();
 		return "welcome";
 	}
 

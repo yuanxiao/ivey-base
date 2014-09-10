@@ -24,17 +24,15 @@ public class MemberLoginHandler {
 	@Autowired
 	private RegionService regionService;
 
-	public boolean doLogin(UserDto user, HttpServletRequest request, HttpServletResponse response) {
+	public MemberDetail doLogin(UserDto user, HttpServletRequest request,
+			HttpServletResponse response) {
 
 		UserDto appUser = userService.getUser(user);
-		boolean loginResult = false;
+		MemberDetail memberDetail = null;
 		if (Validator.isNotNullOrEmpty(appUser)) {
-			loginResult = true;
-			HttpSession session = request.getSession();
-			MemberDetail memberDetail = convertMemberDetail(appUser);
-			session.setAttribute(WebConstants.MEMBER_SESSION_KEY, memberDetail);
+			memberDetail = convertMemberDetail(appUser);
 		}
-		return loginResult;
+		return memberDetail;
 	}
 
 	private MemberDetail convertMemberDetail(UserDto userDto) {
