@@ -8,7 +8,7 @@ import com.ivey.web.base.session.MemberDetail;
 import com.ivey.web.controller.BaseController;
 
 @Controller
-@RequestMapping("/mainsite")
+@RequestMapping("/main")
 public class MainsiteBaseController extends BaseController {
 
 	@RequestMapping("/index")

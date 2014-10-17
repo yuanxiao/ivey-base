@@ -1,8 +1,8 @@
-package com.ivey.web.base.service.impl;
+package com.ivey.module.base.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.ivey.web.base.service.BaseService;
+import com.ivey.mobule.base.service.BaseService;
 
 
 @Service

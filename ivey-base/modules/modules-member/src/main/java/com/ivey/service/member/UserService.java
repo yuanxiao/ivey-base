@@ -1,4 +1,4 @@
-package com.ivey.web.base.service.member;
+package com.ivey.service.member;
 
 import com.ivey.module.member.dto.UserDto;
 

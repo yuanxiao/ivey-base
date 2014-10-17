@@ -33,7 +33,7 @@
             <legend >Basic Information</legend>
             <p>
                 <label for="firstName">First Name</label>
-                <input id="firstName" name="firstName" type="text" />
+                <input id="firstName" name="firstName" type="text" title="First name is required "/>
             </p>
             <p>
                 <label for="lastName">Last Name</label>
