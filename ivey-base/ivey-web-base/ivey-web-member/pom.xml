@@ -56,36 +56,29 @@
 				<configuration>
 					<port>8082</port>
 					<path>/</path>
-					<uriEncoding>UTF-8</uriEncoding>
-					<finalName>mgr</finalName>
-					<server>tomcat7</server>
+					<uriEncoding>utf-8</uriEncoding>
+					<contextFile>src/main/resource/config/context.xml</contextFile>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.spy</groupId>
+						<artifactId>spymemcached</artifactId>
+						<version>2.10.6</version>
+					</dependency>
+					<dependency>
+						<groupId>de.javakaffee.msm</groupId>
+						<artifactId>memcached-session-manager-tc7</artifactId>
+						<version>1.8.1</version>
+					</dependency>
+					<dependency>
+						<groupId>de.javakaffee.msm</groupId>
+						<artifactId>msm-kryo-serializer</artifactId>
+						<version>1.8.0</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
 			</plugin>
 
-
-			<plugin>
-				<groupId>org.codehaus.cargo.maven2</groupId>
-				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.4.9</version>
-				<configuration>
-					<container>
-						<containerId>tomcat7x</containerId>
-					</container>
-					<configuration>
-						<files>
-							<copy>
-								<file>classpath:server.xml</file>
-								<tofile>tomcat/conf/server.xml</tofile>
-								<configfile>true</configfile>
-								<overwrite>true</overwrite>
-							</copy>
-						</files>
-						<properties>
-							<customMessage>Hello World</customMessage>
-						</properties>
-					</configuration>
-				</configuration>
-			</plugin>
 
 
 			<plugin>

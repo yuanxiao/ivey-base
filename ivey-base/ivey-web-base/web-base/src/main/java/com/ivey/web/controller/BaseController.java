@@ -35,12 +35,15 @@ public class BaseController {
 				.getRequestAttributes()).getRequest();
 		Object obj = WebUtils.getSessionAttribute(request,
 				WebConstants.MEMBER_SESSION_KEY);
+		System.err.println(request.getSession().getId());
 		return obj == null ? null : (MemberDetail) obj;
 	}
 
 	protected void setMemberDetail(MemberDetail memberDetail) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
+		
+		System.err.println(request.getSession().getId());
 		request.getSession(true).setAttribute(WebConstants.MEMBER_SESSION_KEY,
 				memberDetail);
 	}

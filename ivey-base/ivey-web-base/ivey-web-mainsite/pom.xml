@@ -45,17 +45,38 @@
 
 	<build>
 		<plugins>
-			<plugin>
+		<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.1</version>
 				<configuration>
 					<port>8084</port>
 					<path>/</path>
-					<uriEncoding>UTF-8</uriEncoding>
-					<finalName>mgr</finalName>
-					<server>tomcat7</server>
+					<uriEncoding>utf-8</uriEncoding>
+					<ignorePackaging>true</ignorePackaging>
+					<systemProperties>
+						<spring.profiles.active>dev</spring.profiles.active>
+					</systemProperties>
+					<contextFile>src/main/resource/config/context.xml</contextFile>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.spy</groupId>
+						<artifactId>spymemcached</artifactId>
+						<version>2.10.6</version>
+					</dependency>
+					<dependency>
+						<groupId>de.javakaffee.msm</groupId>
+						<artifactId>memcached-session-manager-tc7</artifactId>
+						<version>1.8.1</version>
+					</dependency>
+					<dependency>
+						<groupId>de.javakaffee.msm</groupId>
+						<artifactId>msm-kryo-serializer</artifactId>
+						<version>1.8.0</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
 			</plugin>
 
 			<plugin>
