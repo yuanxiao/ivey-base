@@ -13,7 +13,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>modules</groupId>
-			<artifactId>module-base</artifactId>
+			<artifactId>modules-base</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

@@ -59,7 +59,4 @@
 			</list>
 		</property>
 	</bean>
-
-	<import resource="spring-memcached.xml"/>
-
 </beans>

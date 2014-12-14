@@ -11,17 +11,14 @@ import com.ivey.web.controller.BaseController;
 
 @Controller
 @RequestMapping("/main")
-public class MainsiteBaseController extends BaseController {
+public class MainsiteBaseController extends BaseController{
 
 	@RequestMapping("/index")
-	public String mainSite(Model model,HttpSession session) {
-
+	public String mainSite(Model model,HttpSession session){
 		MemberDetail memberDetail = super.getMemberDetail();
+		model.addAttribute("memberDetail",memberDetail);
 		
-		if(memberDetail==null) {
-			memberDetail = (MemberDetail)defaultCache.getCache("defaultCache").get("memberDetail").get();
-		}
-		System.err.println(memberDetail);
+		System.err.println(memberDetail.getNick());
 		return "index";
 	}
 }

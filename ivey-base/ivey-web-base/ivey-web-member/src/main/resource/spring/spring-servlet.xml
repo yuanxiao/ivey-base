@@ -43,6 +43,20 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="loginHandlerFactory" class="com.ivey.web.member.utils.LoginHandlerFactory">
+		<property name="loginHandlers">
+			<map>
+				<entry key="qqLogin">
+					<bean class="com.ivey.web.member.business.handler.MiniLoginHandler" />
+				</entry>
+				<entry key="normalLogin">
+					<bean class="com.ivey.web.member.business.handler.NormalLoginHandler" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
 
 	<import resource="classpath*:spring/spring-interceptor.xml" />
 	<import resource="classpath*:spring/spring-datasource.xml" />

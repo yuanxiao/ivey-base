@@ -18,8 +18,8 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>web-base</groupId>
-			<artifactId>web-base</artifactId>
+			<groupId>ivey-web-base</groupId>
+			<artifactId>ivey-web-base</artifactId>
 			<version>4.0.0</version>
 		</dependency>
 
