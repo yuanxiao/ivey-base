@@ -11,6 +11,16 @@ public class MemberDetail implements Serializable {
 
 	private Login.Authrity level;
 
+	private String nick;
+
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+
 	public Login.Authrity getLevel() {
 		return level;
 	}

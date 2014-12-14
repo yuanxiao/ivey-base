@@ -2,8 +2,10 @@ package com.ivey.web.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,20 +30,22 @@ public class LoginController extends BaseController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam(value = "fromUrl", required = false) String fromUrl, RedirectAttributes model,
-			UserDto user, HttpServletRequest request, HttpServletResponse response) {
+			UserDto user, HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 		MemberDetail memberDetail = memberLoginHandler.doLogin(user, request, response);
 		boolean loginResult = false;
-		if (memberDetail==null) {
+		if (memberDetail == null) {
 			model.addFlashAttribute("loginError", "Login error ,please try again ");
 		} else {
 			loginResult = true;
 			super.setMemberDetail(memberDetail);
 			model.addFlashAttribute("loginResult", Boolean.TRUE);
 			model.addFlashAttribute("userName", user.getUserName());
-			if(Validator.isNullOrEmpty(fromUrl)) {
-					fromUrl = "/member/member";
+			if (Validator.isNullOrEmpty(fromUrl)) {
+				fromUrl = "http://www.ivey.com";
 			}
 		}
+
+		defaultCache.getCache("defaultCache").put("memberDetail", memberDetail);
 		return !loginResult ? "redirect:index" : "redirect:" + fromUrl;
 	}
 
@@ -56,8 +60,7 @@ public class LoginController extends BaseController {
 	@Login(level = Authrity.MEMBER)
 	@RequestMapping(value = "member")
 	public String welcome(Model model) {
-		
-		MemberDetail memberDetail = super.getMemberDetail();
+		// MemberDetail memberDetail = super.getMemberDetail();
 		System.err.println();
 		return "welcome";
 	}

@@ -79,6 +79,29 @@
 				</dependencies>
 			</plugin>
 
+				<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-war-plugin</artifactId>
+								<version>2.4</version>
+								<configuration>
+									<warName>ROOT</warName>
+									<webResources>
+										<resource>
+											<filtering>true</filtering>
+											<directory>src/main/webapp/WEB-INF/views</directory>
+											<targetPath>WEB-INF/views</targetPath>
+											<includes>
+												<include>**/*.vm</include>
+											</includes>
+										</resource>
+										<resource>
+											<directory>src/main/resource/config</directory>
+											<includes><include>context.xml</include></includes>
+											<targetPath>META-INF</targetPath>
+										</resource>
+									</webResources>
+								</configuration>
+							</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>

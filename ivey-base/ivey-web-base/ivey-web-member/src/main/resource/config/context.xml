@@ -1,3 +1,4 @@
+ 
 <Context reloadable="false" useHttpOnly="true"
 	sessionCookiePath="/">
 	<Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"

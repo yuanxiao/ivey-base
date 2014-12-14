@@ -34,6 +34,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>de.javakaffee.msm</groupId>
+			<artifactId>memcached-session-manager-tc7</artifactId>
+			<version>1.8.3</version>
+		</dependency>
+
+		<dependency>
 			<groupId>web-base</groupId>
 			<artifactId>web-base</artifactId>
 			<version>4.0.0</version>
@@ -79,8 +85,29 @@
 				</dependencies>
 			</plugin>
 
-
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warName>ROOT</warName>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp/WEB-INF/views</directory>
+							<targetPath>WEB-INF/views</targetPath>
+							<includes>
+								<include>**/*.vm</include>
+							</includes>
+						</resource>
+						<resource>
+							<directory>src/main/resource</directory>
+							<targetPath>WEB-INF</targetPath>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+ 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>

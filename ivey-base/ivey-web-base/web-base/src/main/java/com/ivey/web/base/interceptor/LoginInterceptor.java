@@ -67,11 +67,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			if (loginResult != null && loginResult) {
 				String userName = modelAndView.getModel().get("userName").toString();
 				CookieGenerator generator = new CookieGenerator();
+				generator.setCookieDomain(".ivey.com");
 				generator.setCookiePath("/");
 				generator.setCookieMaxAge(30 * 60 * 1000);
 				generator.setCookieName("logged_in");
 				generator.addCookie(response, loginResult.toString());
 				
+				
+				generator.setCookieDomain(".ivey.com");
 				generator.setCookiePath("/");
 				generator.setCookieMaxAge(30 * 60 * 1000);
 				generator.setCookieName("dotcom_user");

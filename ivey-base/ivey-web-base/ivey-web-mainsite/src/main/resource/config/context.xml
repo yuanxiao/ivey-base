@@ -1,9 +1,8 @@
 <Context reloadable="false" useHttpOnly="true"
 	sessionCookiePath="/">
 	<Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
-		memcachedNodes="n1:127.0.0.1:11211" sticky="false"
-		operationTimeout="3000" memcachedProtocol="binary" sessionBackupAsync="false"
+		memcachedNodes="n1:127.0.0.1:11211" sticky="false" operationTimeout="3000"
+		memcachedProtocol="binary" sessionBackupAsync="false"
 		requestUriIgnorePattern=".*\.(ico|png|gif|jpg|css|js)$"
 		transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory" />
-
 </Context>
