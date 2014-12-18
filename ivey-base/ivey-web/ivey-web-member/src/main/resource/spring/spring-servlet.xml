@@ -7,9 +7,9 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
-	<context:component-scan base-package="com.ivey">
+	<context:component-scan base-package="com.ivey.web.member">
 		<context:include-filter type="regex"
-			expression=".web.*" />
+			expression=".business.*" />
 	</context:component-scan>
 
 	<mvc:annotation-driven />

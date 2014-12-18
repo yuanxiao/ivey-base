@@ -16,7 +16,7 @@ var Login = {
 	login : function() {
 		jQuery("#fm1").attr("action", "http://localhost:8082/login/login");
 		jQuery("#fm1").attr("method", "post");
-		jQuery("#fm1").submit();
+		jQuery("#fm1").submit(); 
 	},
 };
 function validateForm() {

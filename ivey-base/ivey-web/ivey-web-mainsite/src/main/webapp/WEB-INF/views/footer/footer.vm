@@ -1,1 +1,10 @@
--------------------------------------Footer-----------------------------------------------
+	<div id="footer_bottom">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="copyright ten columns alpha">Copyright &copy; 2012 Frontline Theme Demo. All Rights Reserved</div>
+				<div class="links six columns alpha omega">
+					<a href="#">Sitemap</a> | <a href="#">Privacy</a> | <a href="#">Terms</a>
+				</div>
+			</div>
+		</div>
+	</div>

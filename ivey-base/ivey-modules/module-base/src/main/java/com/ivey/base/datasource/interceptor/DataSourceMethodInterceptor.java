@@ -6,9 +6,9 @@ import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.ThrowsAdvice;
 
+import com.ivey.base.dao.member.MemberBaseDao;
+import com.ivey.base.dao.platform.PlatformBaseDao;
 import com.ivey.base.datasource.dynamic.DBContextHolder;
-import com.ivey.base.module.dao.member.MemberBaseDao;
-import com.ivey.base.module.dao.platform.PlatformBaseDao;
 
 public class DataSourceMethodInterceptor implements MethodBeforeAdvice, AfterReturningAdvice, ThrowsAdvice {
 
