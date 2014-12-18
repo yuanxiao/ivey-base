@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ivey-web-mainsite</groupId>
+	<artifactId>ivey-web-mainsite</artifactId>
+	<name>ivey-web-mainsite</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ivey-web-base</groupId>
+			<artifactId>ivey-web-base</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>LATEST</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>modules-platform</groupId>
+			<artifactId>modules-platform</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	<packaging>war</packaging>
+	<version>4.0.0</version>
+
+
+	<build>
+		<plugins>
+		<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<port>8084</port>
+					<path>/</path>
+					<uriEncoding>utf-8</uriEncoding>
+					<ignorePackaging>true</ignorePackaging>
+					<systemProperties>
+						<spring.profiles.active>dev</spring.profiles.active>
+					</systemProperties>
+					<contextFile>src/main/resource/config/context.xml</contextFile>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.spy</groupId>
+						<artifactId>spymemcached</artifactId>
+						<version>2.10.6</version>
+					</dependency>
+					<dependency>
+						<groupId>de.javakaffee.msm</groupId>
+						<artifactId>memcached-session-manager-tc7</artifactId>
+						<version>1.8.1</version>
+					</dependency>
+					<dependency>
+						<groupId>de.javakaffee.msm</groupId>
+						<artifactId>msm-kryo-serializer</artifactId>
+						<version>1.8.0</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+				<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-war-plugin</artifactId>
+								<version>2.4</version>
+								<configuration>
+									<warName>ROOT</warName>
+									<webResources>
+										<resource>
+											<filtering>true</filtering>
+											<directory>src/main/webapp/WEB-INF/views</directory>
+											<targetPath>WEB-INF/views</targetPath>
+											<includes>
+												<include>**/*.vm</include>
+											</includes>
+										</resource>
+										<resource>
+											<directory>src/main/resource/config</directory>
+											<includes><include>context.xml</include></includes>
+											<targetPath>META-INF</targetPath>
+										</resource>
+									</webResources>
+								</configuration>
+							</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- 在default生命周期的 validate阶段就执行resources插件的copy-resources目标 -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<!-- 指定resources插件处理资源文件到哪个目录下 -->
+							<outputDirectory>target/classes</outputDirectory>
+							<!-- 也可以用下面这样的方式（指定相对url的方式指定outputDirectory） <outputDirectory>target/classes</outputDirectory> -->
+							<!-- 待处理的资源定义 -->
+							<resources>
+								<resource>
+									<!-- 指定resources插件处理哪个目录下的资源文件 -->
+									<directory>src/main/resource</directory>
+									<!-- 指定不需要处理的资源 <excludes> <exclude>WEB-INF/*.*</exclude> </excludes> -->
+									<!-- 是否对待处理的资源开启过滤模式 (resources插件的copy-resources目标也有资源过滤的功能，这里配置的 
+										这个功能的效果跟<build><resources><resource>下配置的资源过滤是一样的，只不过可能执行的阶段不一样， 这里执行的阶段是插件指定的validate阶段，<build><resources><resource>下的配置将是在resources插件的resources目标执行时起作用（在process-resources阶段）) -->
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+						<inherited></inherited>
+					</execution>
+				</executions>
+
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

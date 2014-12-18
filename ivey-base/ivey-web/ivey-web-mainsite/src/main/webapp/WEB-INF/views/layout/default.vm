@@ -1,0 +1,10 @@
+#parse("common/base.vm")
+
+
+#parse("header/header.vm")
+
+
+	$screen_content
+
+
+#parse("footer/footer.vm")

@@ -1,0 +1,25 @@
+
+<ul>
+    #if($!memberDetail)
+        <li class=" $!menu.style">
+            <a href=" http://localhost:8082/member/memberInfo.html"> $!memberDetail.nick</a>
+        </li>
+        #else
+            <li class=" ">
+                <a href=" http://localhost:8082/member/register">註冊</a>
+            </li>
+    #end
+    #foreach($menu in  $!headerMenus)
+        #if( $!menu.login)
+            #if($!memberDetail)
+                <li class=" $!menu.style">
+                    <a href=" $!menu.href"> $!menu.name</a>
+                </li>
+            #end
+            #else 
+                <li class=" $!menu.style">
+                    <a href=" $!menu.href"> $!menu.name</a>
+                </li>
+        #end
+    #end
+</ul>
